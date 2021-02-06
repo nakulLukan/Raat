@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raat.Api", "Raat.Api\Raat.Api.csproj", "{00F6CA4E-BE73-4B3E-90D0-29A5319D9160}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raat.Api", "Raat.Api\Raat.Api.csproj", "{00F6CA4E-BE73-4B3E-90D0-29A5319D9160}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raat.Web", "Raat.Web\Raat.Web.csproj", "{14F86463-DA33-4956-A734-4FA00CC53B11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raat.Web", "Raat.Web\Raat.Web.csproj", "{14F86463-DA33-4956-A734-4FA00CC53B11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raat.Shared", "Raat.Shared\Raat.Shared.csproj", "{07ACE558-F0A2-493A-BF7C-5DC5E30D5A4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raat.Shared", "Raat.Shared\Raat.Shared.csproj", "{07ACE558-F0A2-493A-BF7C-5DC5E30D5A4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
