@@ -1,6 +1,20 @@
 ﻿@page "/"
 @inherits IndexBase;
 
-<h1>Hello, world!</h1>
-<button @onclick="Click">Click me</button>
-@WelcomeText
+<h4>
+    @{
+        if (IsConnected)
+        {
+            <span>(.)</span>
+        }
+     }
+Your connection id is <button @onclick="@CopyMyIdToClipboard">@MyConnectionId</button>
+</h4>
+<EditForm Model="@Connection" OnValidSubmit="@OnSubmit">
+    <DataAnnotationsValidator/>
+    <button type="button" @onclick="FindRandomUser">Find one</button>
+    <h1>Enter the connection id of whom you wanted to chat in the below text box.</h1>
+    <InputText @bind-Value="@Connection.Id"></InputText>
+    <button type="submit">Message</button>
+    <ValidationMessage For="@(()=> Connection.Id)"></ValidationMessage>
+</EditForm>

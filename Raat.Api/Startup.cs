@@ -6,6 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Raat.Api.Hubs;
+using Raat.Api.Services;
+using Raat.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +28,16 @@ namespace Raat.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(option =>
+            {
+                option.AddPolicy("CorsPolicy", builder =>
+                {
+                    builder.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:5000");
+                });
+            });
             services.AddSignalR();
             services.AddControllers();
+            services.RegisterService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,11 +52,14 @@ namespace Raat.Api
 
             app.UseRouting();
 
+            app.UseCors("CorsPolicy");
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<RaatClientHub>(SharedConstant.ClientHubUrl);
             });
         }
     }
